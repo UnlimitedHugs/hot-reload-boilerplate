@@ -38,7 +38,10 @@ module.exports = [{
     plugins: [
         new LiveReloadPlugin({appendScriptTag:true})
     ],
-    entry: "./src/client/index.ts",
+    entry: [
+		"./src/client/index.ts",
+		"./src/static/index.html"
+	],
     devtool: "source-map",
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json"]
@@ -46,6 +49,10 @@ module.exports = [{
 
     module: {
         rules: [
+			{ test: /\.html$/, use: [{
+				loader: 'file-loader',
+				options: {name:"[name].[ext]"}  
+			}]},
             { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
         ]

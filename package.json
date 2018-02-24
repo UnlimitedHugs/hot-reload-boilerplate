@@ -15,6 +15,7 @@
   "devDependencies": {
     "@types/express": "^4.11.1",
     "awesome-typescript-loader": "^3.4.1",
+    "file-loader": "^1.1.9",
     "source-map-loader": "^0.2.3",
     "typescript": "^2.7.2",
     "webpack": "^3.11.0",
