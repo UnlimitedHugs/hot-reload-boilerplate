@@ -1,5 +1,6 @@
 var LiveReloadPlugin = require('webpack-livereload-plugin');
 var nodeExternals = require('webpack-node-externals');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = [{
 	name: "server",
@@ -36,11 +37,14 @@ module.exports = [{
 		publicPath: "/"
     },
     plugins: [
-        new LiveReloadPlugin({appendScriptTag:true})
+        new LiveReloadPlugin({appendScriptTag:true}),
+        new HtmlWebpackPlugin({
+            template: 'src/static/index.html',
+            inject: 'body',
+        })
     ],
     entry: [
-		"./src/client/index.ts",
-		"./src/static/index.html"
+		"./src/client/index.ts"
 	],
     devtool: "source-map",
     resolve: {
@@ -49,10 +53,6 @@ module.exports = [{
 
     module: {
         rules: [
-			{ test: /\.html$/, use: [{
-				loader: 'file-loader',
-				options: {name:"[name].[ext]"}  
-			}]},
             { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
         ]
