@@ -1,1 +1,1 @@
-window.document.write("noice");
+window.document.write("hello from js");

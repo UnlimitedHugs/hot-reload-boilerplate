@@ -1,14 +1,14 @@
 {
-  "name": "hotreloadtest",
+  "name": "hot-reload-boilerplate",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A Node.js hot-loading solution for full-stack projects.  \nWhen changes are detected in the source files, bundles for client and server are automatically compiled, and the server module is loaded into the running node instance. The browser is then refreshed, if the changed files were pertinent to the client.\n\nUses webpack, which runs in the same instance that hot-loads the compiled modules.\n  Express is used only for demonstration purposes.\n\nUse `npm start` to test.",
+  "main": "src/hotloader.js",
   "scripts": {
-    "start": "nodemon src/hotloader.js --ignore .",
+    "start": "node src/hotloader.js",
     "pack": "webpack -wd"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.16.2"
   },
