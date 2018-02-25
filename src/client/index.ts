@@ -1,1 +1,1 @@
-window.document.write("eyyy");
+window.document.write("noice");
